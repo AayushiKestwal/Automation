@@ -1,0 +1,15 @@
+from selenium import webdriver
+
+driver = webdriver.Firefox()
+driver.maximize_window()
+driver.get("https://sotcconnect.travelexic.com/login")
+driver.implicitly_wait(5)
+email_input = driver.find_element(by="css selector", value="input[name='email']")
+email_input.send_keys("aayushi.travelexic@gmail.com")
+driver.find_element(by="name", value="password").send_keys("123456")
+driver.find_element(by="css selector",value=".btn-primary").click()
+driver.implicitly_wait(5)
+driver.get("https://sotcconnect.travelexic.com/groups")
+driver.implicitly_wait(5)
+driver.find_element(by="xpath",value="(//i[contains(@title,'Edit')])[1]").click()
+driver.find_element(by="xpath",value="//li[normalize-space()='Group Activation']").click()
